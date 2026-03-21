@@ -3,18 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Khushi Gupta — Character Profile</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<title>Khushi Gupta — Creative Head</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;600;700&family=Fraunces:ital,wght@0,900;1,400;1,700&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #0a0a0f;
-    --surface: #111118;
-    --accent: #ff6b35;
-    --accent2: #ffd166;
-    --text: #e8e6df;
-    --muted: #6b6a72;
-    --border: rgba(255,107,53,0.15);
-    --glow: rgba(255,107,53,0.08);
+    --bg: #ffffff;
+    --surface: #f7f5ff;
+    --surface2: #fff0f5;
+    --surface3: #fffbea;
+    --surface4: #eef6ff;
+    --pink: #ff2d78;
+    --pink2: #ff85b3;
+    --blue: #1a72ff;
+    --blue2: #5aaeff;
+    --yellow: #ffc700;
+    --yellow2: #ffe066;
+    --purple: #8b5cf6;
+    --text: #1a1830;
+    --muted: #9490a8;
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,443 +30,627 @@
     color: var(--text);
     font-family: 'DM Sans', sans-serif;
     min-height: 100vh;
-    padding: 40px 20px;
-    position: relative;
+    padding: 48px 20px 80px;
     overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: -200px; right: -200px;
-    width: 600px; height: 600px;
-    background: radial-gradient(circle, rgba(255,107,53,0.07) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  body::after {
-    content: '';
-    position: fixed;
-    bottom: -200px; left: -100px;
-    width: 500px; height: 500px;
-    background: radial-gradient(circle, rgba(255,209,102,0.05) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  .wrapper {
-    max-width: 900px;
-    margin: 0 auto;
     position: relative;
-    z-index: 1;
-    animation: fadeUp 0.8s ease both;
   }
 
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
-    to { opacity: 1; transform: translateY(0); }
+  .blob {
+    position: fixed; border-radius: 50%;
+    filter: blur(80px); opacity: 0.18;
+    pointer-events: none; z-index: 0;
   }
+  .b1 { width: 700px; height: 700px; background: var(--pink); top: -250px; right: -200px; animation: bd1 14s ease-in-out infinite alternate; }
+  .b2 { width: 600px; height: 600px; background: var(--blue); bottom: -200px; left: -200px; animation: bd2 16s ease-in-out infinite alternate; }
+  .b3 { width: 450px; height: 450px; background: var(--yellow); top: 30%; left: 20%; animation: bd3 18s ease-in-out infinite alternate; }
+  .b4 { width: 300px; height: 300px; background: var(--purple); bottom: 15%; right: 5%; animation: bd1 11s ease-in-out infinite alternate-reverse; }
+
+  @keyframes bd1 { from { transform: translate(0,0); } to { transform: translate(40px,30px); } }
+  @keyframes bd2 { from { transform: translate(0,0); } to { transform: translate(-30px,40px); } }
+  @keyframes bd3 { from { transform: translate(0,0); } to { transform: translate(20px,-35px); } }
+
+  .dot-grid {
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: radial-gradient(circle, rgba(100,80,200,0.1) 1.5px, transparent 1.5px);
+    background-size: 36px 36px;
+  }
+
+  /* PLANES */
+  .sky { position: fixed; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
+
+  .plane {
+    position: absolute; line-height: 1;
+    filter: drop-shadow(0 4px 14px rgba(0,0,0,0.12));
+  }
+  .pl { font-size: 54px; }
+  .pm { font-size: 38px; }
+  .ps { font-size: 26px; }
+
+  .plane::after {
+    content: '';
+    position: absolute; right: 100%; top: 50%;
+    transform: translateY(-50%);
+    width: 90px; height: 3px; border-radius: 2px; opacity: 0.3;
+  }
+  .pink-p::after  { background: linear-gradient(90deg, transparent, var(--pink)); }
+  .blue-p::after  { background: linear-gradient(90deg, transparent, var(--blue)); }
+  .yell-p::after  { background: linear-gradient(90deg, transparent, var(--yellow)); }
+  .purp-p::after  { background: linear-gradient(90deg, transparent, var(--purple)); }
+
+  .p1 { top: 6%;  animation: fR 22s linear infinite; }
+  .p2 { top: 20%; animation: fL 28s linear infinite; animation-delay: -8s; }
+  .p3 { top: 38%; animation: fR 18s linear infinite; animation-delay: -5s; }
+  .p4 { top: 58%; animation: fL 32s linear infinite; animation-delay: -14s; }
+  .p5 { top: 72%; animation: fR 24s linear infinite; animation-delay: -10s; }
+  .p6 { top: 85%; animation: fL 20s linear infinite; animation-delay: -3s; }
+  .p7 { top: 46%; animation: fDiag 36s linear infinite; animation-delay: -18s; }
+
+  @keyframes fR {
+    from { left: -110px; transform: rotate(-4deg); }
+    to   { left: 110vw;  transform: rotate(-4deg); }
+  }
+  @keyframes fL {
+    from { left: 110vw;  transform: scaleX(-1) rotate(-4deg); }
+    to   { left: -110px; transform: scaleX(-1) rotate(-4deg); }
+  }
+  @keyframes fDiag {
+    0%   { left: -110px; top: 46%; transform: rotate(-6deg); }
+    50%  { left: 55vw;   top: 30%; transform: rotate(3deg); }
+    100% { left: 110vw;  top: 20%; transform: rotate(-3deg); }
+  }
+
+  .wrapper { max-width: 980px; margin: 0 auto; position: relative; z-index: 2; }
 
   /* HEADER */
   .header {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: start;
-    gap: 24px;
-    margin-bottom: 48px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid var(--border);
+    padding: 0 0 52px;
+    border-bottom: 2px solid rgba(0,0,0,0.06);
+    margin-bottom: 8px;
+    animation: fadeUp 0.9s ease both;
   }
 
-  .label {
+  .top-label {
     font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 12px;
+    font-size: 11px; letter-spacing: 0.28em;
+    color: var(--muted); text-transform: uppercase;
+    margin-bottom: 22px;
+    display: flex; align-items: center; gap: 12px;
   }
+  .top-label .ti { font-size: 20px; animation: wobble 3s ease-in-out infinite; }
+  @keyframes wobble { 0%,100% { transform: rotate(-5deg); } 50% { transform: rotate(5deg); } }
 
-  h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(36px, 6vw, 64px);
-    font-weight: 700;
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    color: var(--text);
-  }
-
-  h1 em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .tagline {
-    font-size: 15px;
-    color: var(--muted);
-    margin-top: 10px;
-    font-weight: 300;
-    letter-spacing: 0.01em;
-  }
-
-  .badge-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-end;
-  }
-
-  .badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 2px;
-    border: 1px solid var(--border);
-    color: var(--muted);
-    background: var(--surface);
-  }
-
-  .badge.hot {
-    border-color: var(--accent);
-    color: var(--accent);
-    background: rgba(255,107,53,0.06);
-  }
-
-  /* GRID */
-  .grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    margin-bottom: 16px;
-  }
-
-  .grid.three { grid-template-columns: 1fr 1fr 1fr; }
-
-  @media (max-width: 600px) {
-    .grid, .grid.three { grid-template-columns: 1fr; }
-    .header { grid-template-columns: 1fr; }
-    .badge-stack { align-items: flex-start; }
-  }
-
-  /* CARDS */
-  .card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: 24px;
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 15vw, 158px);
+    line-height: 0.85; letter-spacing: 0.01em;
+    color: var(--text); display: inline-block;
     position: relative;
-    overflow: hidden;
-    transition: border-color 0.3s, transform 0.3s;
+  }
+  .hero-name::after {
+    content: ''; display: block;
+    height: 8px; width: 100%; border-radius: 4px;
+    background: linear-gradient(90deg, var(--pink), var(--yellow), var(--blue));
+    margin-top: 8px;
+  }
+
+  .italic-part {
+    font-family: 'Fraunces', serif;
+    font-style: italic; font-weight: 700;
+    background: linear-gradient(120deg, var(--pink) 0%, var(--purple) 50%, var(--blue) 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    display: block; font-size: 0.7em; line-height: 1.1;
+  }
+
+  .hero-sub { margin-top: 26px; display: flex; flex-wrap: wrap; gap: 8px; }
+
+  .pill {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 8px 18px; border-radius: 100px; font-weight: 500;
+  }
+  .pill-p  { border: 1.5px solid var(--pink);   color: var(--pink);   background: #fff0f5; }
+  .pill-b  { border: 1.5px solid var(--blue);   color: var(--blue);   background: #eef4ff; }
+  .pill-y  { border: 1.5px solid var(--yellow); color: #9a7000;       background: #fffbea; }
+  .pill-pu { border: 1.5px solid var(--purple); color: var(--purple); background: #f5f0ff; }
+
+  /* CHIPS */
+  .link-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+  .chip {
+    display: inline-flex; align-items: center; gap: 8px;
+    text-decoration: none;
+    font-family: 'DM Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    padding: 12px 22px; border-radius: 4px;
+    transition: all 0.22s ease; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  }
+  .chip svg { width: 14px; height: 14px; flex-shrink: 0; fill: currentColor; }
+
+  .chip-p { background: var(--pink);   color: #fff; }
+  .chip-p:hover { background: #d4005a; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,45,120,0.35); }
+  .chip-b { background: var(--blue);   color: #fff; }
+  .chip-b:hover { background: #0055e0; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(26,114,255,0.35); }
+  .chip-y { background: var(--yellow); color: #1a1830; }
+  .chip-y:hover { background: #e6b000; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(255,199,0,0.35); }
+  .chip-li { background: #0A66C2; color: #fff; }
+  .chip-li:hover { background: #004182; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(10,102,194,0.35); }
+  .chip-ig { background: linear-gradient(135deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); color: #fff; }
+  .chip-ig:hover { opacity: 0.88; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(220,39,67,0.35); }
+  .chip-wa { background: #25D366; color: #fff; }
+  .chip-wa:hover { background: #1ebe5d; transform: translateY(-3px); box-shadow: 0 8px 24px rgba(37,211,102,0.35); }
+
+  /* SECTION FLOAT */
+  .section-float {
+    display: flex; align-items: center; gap: 14px;
+    margin: 54px 0 18px; animation: fadeUp 0.6s ease both;
+  }
+  .float-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 12px; letter-spacing: 0.2em;
+    padding: 6px 14px; border-radius: 100px; white-space: nowrap;
+  }
+  .fn-p  { background: var(--pink);   color: #fff; }
+  .fn-b  { background: var(--blue);   color: #fff; }
+  .fn-y  { background: var(--yellow); color: #1a1830; }
+  .fn-pu { background: var(--purple); color: #fff; }
+
+  .section-float h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(26px, 4vw, 38px); letter-spacing: 0.08em;
+    color: var(--text); line-height: 1;
+  }
+
+  .float-line { flex: 1; height: 2px; border-radius: 2px; }
+  .fl-p  { background: linear-gradient(90deg, var(--pink),   transparent); }
+  .fl-b  { background: linear-gradient(90deg, var(--blue),   transparent); }
+  .fl-y  { background: linear-gradient(90deg, var(--yellow), transparent); }
+  .fl-pu { background: linear-gradient(90deg, var(--purple), transparent); }
+
+  /* GRID + CARDS */
+  .grid   { display: grid; gap: 16px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  .grid-3 { grid-template-columns: 2fr 1fr; }
+
+  @media (max-width: 640px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    border-radius: 12px; padding: 30px;
+    position: relative; overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
     animation: fadeUp 0.8s ease both;
   }
-
-  .card:hover {
-    border-color: rgba(255,107,53,0.35);
-    transform: translateY(-2px);
-  }
+  .card:hover { transform: translateY(-5px); }
 
   .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    opacity: 0;
-    transition: opacity 0.3s;
+    content: ''; position: absolute;
+    top: -30px; right: -30px;
+    width: 90px; height: 90px;
+    border-radius: 50%; opacity: 0.12;
   }
-  .card:hover::before { opacity: 1; }
 
-  .card-label {
+  .card.cp  { background: var(--surface2); border: 1.5px solid rgba(255,45,120,0.2); }
+  .card.cp::before { background: var(--pink); }
+  .card.cp:hover { box-shadow: 0 20px 50px rgba(255,45,120,0.16); }
+
+  .card.cb  { background: var(--surface4); border: 1.5px solid rgba(26,114,255,0.2); }
+  .card.cb::before { background: var(--blue); }
+  .card.cb:hover { box-shadow: 0 20px 50px rgba(26,114,255,0.14); }
+
+  .card.cy  { background: var(--surface3); border: 1.5px solid rgba(255,199,0,0.25); }
+  .card.cy::before { background: var(--yellow); }
+  .card.cy:hover { box-shadow: 0 20px 50px rgba(255,199,0,0.16); }
+
+  .card.cpu { background: var(--surface); border: 1.5px solid rgba(139,92,246,0.2); }
+  .card.cpu::before { background: var(--purple); }
+  .card.cpu:hover { box-shadow: 0 20px 50px rgba(139,92,246,0.14); }
+
+  .card-tag {
     font-family: 'DM Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 14px;
+    font-size: 9px; letter-spacing: 0.24em;
+    text-transform: uppercase; margin-bottom: 12px;
   }
+  .card.cp  .card-tag { color: var(--pink); }
+  .card.cb  .card-tag { color: var(--blue); }
+  .card.cy  .card-tag { color: #9a7000; }
+  .card.cpu .card-tag { color: var(--purple); }
 
   .card h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: var(--text);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 30px; letter-spacing: 0.05em;
+    margin-bottom: 14px; line-height: 1; color: var(--text);
   }
+  .card p { font-size: 14px; line-height: 1.78; color: #5a5670; font-weight: 400; }
 
-  .card p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #9a9898;
-    font-weight: 300;
+  /* STAT ROW */
+  .stat-row { display: flex; gap: 14px; margin-bottom: 18px; }
+
+  .stat-box {
+    flex: 1; border-radius: 10px; padding: 16px;
+    text-align: center;
   }
+  .stat-box.sp { background: #fff0f5; border: 1.5px solid rgba(255,45,120,0.2); }
+  .stat-box.sb { background: #eef4ff; border: 1.5px solid rgba(26,114,255,0.2); }
+  .stat-box.sy { background: #fffbea; border: 1.5px solid rgba(255,199,0,0.25); }
 
-  /* SKILLS BAR */
-  .skill-row {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px; line-height: 1; letter-spacing: 0.03em;
   }
+  .stat-box.sp .stat-num { color: var(--pink); }
+  .stat-box.sb .stat-num { color: var(--blue); }
+  .stat-box.sy .stat-num { color: #9a7000; }
 
-  .skill-item { }
-
-  .skill-top {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 6px;
-  }
-
-  .skill-name {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--text);
-  }
-
-  .skill-level {
+  .stat-label {
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
+    font-size: 9px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--muted); margin-top: 4px;
   }
 
-  .skill-bar {
-    height: 3px;
-    background: rgba(255,255,255,0.06);
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
+  /* SKILLS */
+  .skill-row { display: flex; flex-direction: column; gap: 15px; }
+  .skill-top { display: flex; justify-content: space-between; margin-bottom: 7px; }
+  .skill-name { font-size: 13px; font-weight: 700; color: var(--text); }
+  .skill-level { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--muted); }
+  .skill-bar { height: 5px; background: rgba(0,0,0,0.07); border-radius: 5px; overflow: hidden; }
   .skill-fill {
-    height: 100%;
-    border-radius: 2px;
-    background: linear-gradient(90deg, var(--accent), var(--accent2));
-    transform-origin: left;
-    animation: barGrow 1.2s cubic-bezier(0.22, 1, 0.36, 1) both;
-    animation-delay: 0.4s;
+    height: 100%; border-radius: 5px; transform-origin: left;
+    animation: barGrow 1.4s cubic-bezier(0.22,1,0.36,1) both;
+    animation-delay: 0.5s;
   }
-
-  @keyframes barGrow {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
+  .sf-p  { background: linear-gradient(90deg, var(--pink), var(--pink2)); }
+  .sf-b  { background: linear-gradient(90deg, var(--blue), var(--blue2)); }
+  .sf-y  { background: linear-gradient(90deg, var(--yellow2), var(--yellow)); }
+  .sf-pu { background: linear-gradient(90deg, var(--purple), #c084fc); }
+  @keyframes barGrow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
   /* TRAITS */
-  .trait-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-
+  .trait-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
   .trait {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.06);
-    border-radius: 3px;
-    padding: 12px 14px;
-    font-size: 13px;
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    border-radius: 8px; padding: 13px 14px;
+    display: flex; align-items: flex-start; gap: 9px;
+    transition: transform 0.2s;
   }
-
-  .trait-icon {
-    font-size: 16px;
-    line-height: 1;
-    flex-shrink: 0;
-  }
-
-  .trait-text { color: #9a9898; font-weight: 300; line-height: 1.5; }
+  .trait:hover { transform: translateY(-2px); }
+  .trait:nth-child(1) { background: #fff0f7; border: 1px solid rgba(255,45,120,0.15); }
+  .trait:nth-child(2) { background: #eef4ff; border: 1px solid rgba(26,114,255,0.15); }
+  .trait:nth-child(3) { background: #fffbea; border: 1px solid rgba(255,199,0,0.2); }
+  .trait:nth-child(4) { background: #f5f0ff; border: 1px solid rgba(139,92,246,0.15); }
+  .trait:nth-child(5) { background: #eef4ff; border: 1px solid rgba(26,114,255,0.15); }
+  .trait:nth-child(6) { background: #fff0f7; border: 1px solid rgba(255,45,120,0.15); }
+  .trait-icon { font-size: 18px; line-height: 1; flex-shrink: 0; }
+  .trait-text { color: #5a5670; font-size: 13px; font-weight: 400; line-height: 1.5; }
 
   /* GOALS */
-  .goal-list { display: flex; flex-direction: column; gap: 10px; }
-
+  .goal-list { display: flex; flex-direction: column; gap: 12px; }
   .goal-item {
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
+    display: flex; gap: 14px; align-items: flex-start;
+    padding: 14px; border-radius: 8px;
   }
+  .goal-item:nth-child(1) { background: #fff0f5; border: 1px solid rgba(255,45,120,0.15); }
+  .goal-item:nth-child(2) { background: #eef4ff; border: 1px solid rgba(26,114,255,0.15); }
+  .goal-item:nth-child(3) { background: #fffbea; border: 1px solid rgba(255,199,0,0.2); }
 
   .goal-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    flex-shrink: 0;
-    margin-top: 2px;
-    font-weight: 500;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px; flex-shrink: 0; line-height: 1.1;
   }
+  .gn-p { color: var(--pink); }
+  .gn-b { color: var(--blue); }
+  .gn-y { color: #9a7000; }
+  .goal-text { font-size: 14px; color: #5a5670; line-height: 1.65; }
 
-  .goal-text {
-    font-size: 14px;
-    color: #9a9898;
-    font-weight: 300;
-    line-height: 1.6;
+  /* WORK */
+  .work-list { display: flex; flex-direction: column; gap: 12px; }
+  .work-item {
+    display: flex; gap: 16px; align-items: flex-start;
+    padding: 18px; border-radius: 10px; transition: transform 0.25s;
   }
+  .work-item:hover { transform: translateX(4px); }
+  .work-item:nth-child(1) { background: #fff0f5; border: 1.5px solid rgba(255,45,120,0.18); }
+  .work-item:nth-child(2) { background: #eef4ff; border: 1.5px solid rgba(26,114,255,0.18); }
+  .work-item:nth-child(3) { background: #fffbea; border: 1.5px solid rgba(255,199,0,0.22); }
+  .work-item:nth-child(4) { background: #f5f0ff; border: 1.5px solid rgba(139,92,246,0.18); }
+
+  .work-icon { font-size: 26px; flex-shrink: 0; line-height: 1; }
+  .work-tag {
+    display: inline-block;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 100px; margin-bottom: 6px;
+  }
+  .wt-p  { background: rgba(255,45,120,0.12);  color: var(--pink); }
+  .wt-b  { background: rgba(26,114,255,0.12);  color: var(--blue); }
+  .wt-y  { background: rgba(255,199,0,0.15);   color: #9a7000; }
+  .wt-pu { background: rgba(139,92,246,0.12);  color: var(--purple); }
+
+  .work-title { font-size: 14px; font-weight: 700; color: var(--text); margin-bottom: 5px; }
+  .work-desc  { font-size: 13px; color: #5a5670; line-height: 1.6; }
 
   /* MANTRA */
   .mantra-card {
-    background: linear-gradient(135deg, rgba(255,107,53,0.08), rgba(255,209,102,0.05));
-    border: 1px solid rgba(255,107,53,0.25);
-    border-radius: 4px;
-    padding: 32px;
-    text-align: center;
-    margin-top: 16px;
-    animation: fadeUp 0.8s ease 0.6s both;
+    margin-top: 16px; border-radius: 16px;
+    padding: 60px 48px; text-align: center;
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, #fff0f7 0%, #eef4ff 50%, #fffbea 100%);
+    border: 2px solid rgba(255,45,120,0.12);
+    animation: fadeUp 0.8s ease 0.4s both;
   }
+  .mantra-card::before {
+    content: '✈'; position: absolute;
+    font-size: 200px; opacity: 0.04;
+    top: -20px; right: -20px;
+    pointer-events: none; line-height: 1; color: var(--pink);
+    animation: spinSlow 30s linear infinite;
+  }
+  @keyframes spinSlow { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-  .mantra-card .card-label { text-align: center; }
-
+  .mantra-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 22px;
+  }
   .mantra-quote {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(18px, 3vw, 26px);
-    font-style: italic;
-    color: var(--text);
-    line-height: 1.4;
+    font-family: 'Fraunces', serif; font-style: italic;
+    font-size: clamp(20px, 3.5vw, 30px);
+    color: var(--text); line-height: 1.5; position: relative; z-index: 1;
   }
-
-  .mantra-quote span { color: var(--accent); font-style: normal; }
-
-  /* FULL WIDTH */
-  .full { grid-column: 1 / -1; }
-
-  /* STAGGER DELAYS */
-  .card:nth-child(1) { animation-delay: 0.1s; }
-  .card:nth-child(2) { animation-delay: 0.2s; }
-  .card:nth-child(3) { animation-delay: 0.25s; }
-  .card:nth-child(4) { animation-delay: 0.3s; }
-  .card:nth-child(5) { animation-delay: 0.35s; }
+  .mq-p { color: var(--pink);   font-style: normal; font-weight: 700; }
+  .mq-b { color: var(--blue);   font-style: normal; font-weight: 700; }
+  .mq-y { color: #9a7000;       font-style: normal; font-weight: 700; }
 
   /* FOOTER */
   .footer {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
+    margin-top: 52px; padding-top: 22px;
+    border-top: 2px solid rgba(0,0,0,0.06);
     font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-    text-align: center;
+    font-size: 10px; color: var(--muted);
+    letter-spacing: 0.12em; text-align: center;
   }
+  .footer a { text-decoration: none; transition: opacity 0.2s; font-weight: 600; }
+  .footer a:hover { opacity: 0.7; }
+  .footer a.fp { color: var(--pink); }
+  .footer a.fb { color: var(--blue); }
+  .footer a.fy { color: #9a7000; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .card:nth-child(1) { animation-delay: 0.08s; }
+  .card:nth-child(2) { animation-delay: 0.16s; }
+  .card:nth-child(3) { animation-delay: 0.22s; }
+  .card:nth-child(4) { animation-delay: 0.28s; }
 </style>
 </head>
 <body>
+
+<div class="blob b1"></div>
+<div class="blob b2"></div>
+<div class="blob b3"></div>
+<div class="blob b4"></div>
+<div class="dot-grid"></div>
+
+<div class="sky">
+  <div class="plane pl pink-p p1">✈</div>
+  <div class="plane pm blue-p p2">✈</div>
+  <div class="plane pl yell-p p3">✈</div>
+  <div class="plane ps purp-p p4">✈</div>
+  <div class="plane pm pink-p p5">✈</div>
+  <div class="plane pl blue-p p6">✈</div>
+  <div class="plane ps yell-p p7">✈</div>
+</div>
+
 <div class="wrapper">
 
   <!-- HEADER -->
   <div class="header">
-    <div>
-      <div class="label">Character Profile · Garda AI Academy</div>
-      <h1>Khushi<br><em>Gupta</em></h1>
-      <p class="tagline">Creative Head · Builder · Content Strategist · Bihar's AI Voice</p>
+    <div class="top-label">
+      <span class="ti">✈</span>
+      Creative Profile · Garda AI Academy · Bihar, India
     </div>
-    <div class="badge-stack">
-      <div class="badge hot">Creative Head</div>
-      <div class="badge">Bihar-based</div>
-      <div class="badge">AI Ecosystem</div>
+    <div class="hero-name">
+      KHUSHI
+      <span class="italic-part">Gupta.</span>
+    </div>
+    <div class="hero-sub">
+      <span class="pill pill-p">Creative Head</span>
+      <span class="pill pill-b">Garda AI Academy</span>
+      <span class="pill pill-y">39K+ Views</span>
+      <span class="pill pill-pu">Bihar · India</span>
+    </div>
+    <div class="link-chips">
+      <a class="chip chip-li" href="https://www.linkedin.com/in/khushi-gupta-a767933a3" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        LinkedIn
+      </a>
+      <a class="chip chip-ig" href="https://www.instagram.com/khushivibes9" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        Instagram
+      </a>
+      <a class="chip chip-wa" href="https://wa.me/919905373541" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+      <a class="chip chip-y" href="mailto:khushigupta2004real@gmail.com">
+        <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        Email
+      </a>
     </div>
   </div>
 
-  <!-- ROW 1 -->
-  <div class="grid">
-
-    <div class="card">
-      <div class="card-label">01 — Identity</div>
-      <h2>Who She Is</h2>
-      <p>A system-thinker and creative powerhouse operating at the intersection of technology and storytelling. Khushi leads creative at Garda AI Academy — a Bihar-first AI startup — bringing structure, vision, and aesthetic discipline to everything she touches. She doesn't hustle blindly; she builds with intention.</p>
-    </div>
-
-    <div class="card">
-      <div class="card-label">02 — Core Belief</div>
-      <h2>Philosophy</h2>
-      <p>Skill mastery over fear. She believes the antidote to imposter syndrome isn't motivation — it's craft. The more you master your tools, the quieter the noise gets. She follows structured, system-based approaches because she knows consistency beats inspiration every time.</p>
-    </div>
-
+  <!-- 01 WHO I AM -->
+  <div class="section-float">
+    <span class="float-num fn-p">01</span>
+    <h3>Who I Am</h3>
+    <div class="float-line fl-p"></div>
   </div>
 
-  <!-- ROW 2 -->
-  <div class="grid three">
+  <div class="stat-row">
+    <div class="stat-box sp"><div class="stat-num">39K+</div><div class="stat-label">YouTube Views</div></div>
+    <div class="stat-box sb"><div class="stat-num">2+</div><div class="stat-label">Years Creating</div></div>
+    <div class="stat-box sy"><div class="stat-num">3+</div><div class="stat-label">Active Projects</div></div>
+  </div>
 
-    <div class="card" style="grid-column: span 2;">
-      <div class="card-label">03 — Skills & Tools</div>
-      <h2>What She Masters</h2>
-      <div class="skill-row" style="margin-top: 4px;">
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">DaVinci Resolve — Video Editing</span><span class="skill-level">Expert</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width:92%"></div></div>
+  <div class="grid grid-2">
+    <div class="card cp">
+      <div class="card-tag">The Intro</div>
+      <h2>Building from Bihar</h2>
+      <p>I'm Khushi — Creative Head at Garda AI Academy, Bihar's first AI education startup. I handle everything that makes us look, sound, and feel real: branding, scripting, video editing, content strategy. I didn't study design or film. I just started making things, kept going, and figured it out along the way.</p>
+    </div>
+    <div class="card cb">
+      <div class="card-tag">Where It Started</div>
+      <h2>The 39K Moment</h2>
+      <p>On RadheWorks, I made an AI short film about the Ahmedabad plane crash. It hit 39,000+ views — no paid promotion, just storytelling. That's when I understood what's possible when you combine AI tools with a real creative instinct. I've been building on that since.</p>
+    </div>
+  </div>
+
+  <!-- 02 WHAT I DO -->
+  <div class="section-float">
+    <span class="float-num fn-b">02</span>
+    <h3>What I Do</h3>
+    <div class="float-line fl-b"></div>
+  </div>
+
+  <div class="grid grid-3">
+    <div class="card cy">
+      <div class="card-tag">The Craft</div>
+      <h2>Skills</h2>
+      <div class="skill-row" style="margin-top:10px;">
+        <div>
+          <div class="skill-top"><span class="skill-name">Video Editing — DaVinci Resolve</span><span class="skill-level">Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill sf-p" style="width:92%"></div></div>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Instagram Growth & Reels</span><span class="skill-level">Advanced</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width:85%"></div></div>
+        <div>
+          <div class="skill-top"><span class="skill-name">Branding & Visual Identity</span><span class="skill-level">Expert</span></div>
+          <div class="skill-bar"><div class="skill-fill sf-b" style="width:88%"></div></div>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Branding Strategy</span><span class="skill-level">Advanced</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width:83%"></div></div>
+        <div>
+          <div class="skill-top"><span class="skill-name">Reels & Short-form Content</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill sf-y" style="width:85%"></div></div>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">Reel Scripting & Content Direction</span><span class="skill-level">Expert</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width:90%"></div></div>
+        <div>
+          <div class="skill-top"><span class="skill-name">Scripting & Content Direction</span><span class="skill-level">Advanced</span></div>
+          <div class="skill-bar"><div class="skill-fill sf-pu" style="width:82%"></div></div>
         </div>
-        <div class="skill-item">
-          <div class="skill-top"><span class="skill-name">YouTube Authority Building</span><span class="skill-level">Growing</span></div>
-          <div class="skill-bar"><div class="skill-fill" style="width:65%"></div></div>
+        <div>
+          <div class="skill-top"><span class="skill-name">Personal Branding Strategy</span><span class="skill-level">Growing</span></div>
+          <div class="skill-bar"><div class="skill-fill sf-b" style="width:68%"></div></div>
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-label">04 — Approach</div>
-      <h2>How She Works</h2>
-      <p style="margin-bottom: 10px;">Systems over chaos. She maps workflows before she acts. Content calendars, brand frameworks, structured scripts — everything has a place and a purpose. Execution is never accidental.</p>
+    <div class="card cpu">
+      <div class="card-tag">How I Work</div>
+      <h2>My Approach</h2>
+      <p>I don't wait for a brief. I see what's missing, make it, and keep refining. Whether it's a 30-second Reel or a full brand identity — I think about story first, aesthetics second. I use AI as a creative tool, not a replacement for thinking.</p>
     </div>
-
   </div>
 
-  <!-- ROW 3 -->
-  <div class="grid">
+  <!-- 03 WHAT I'M BUILDING -->
+  <div class="section-float">
+    <span class="float-num fn-y">03</span>
+    <h3>What I'm Building</h3>
+    <div class="float-line fl-y"></div>
+  </div>
 
-    <div class="card">
-      <div class="card-label">05 — Core Goals</div>
-      <h2>What She's Building</h2>
+  <div class="grid grid-2">
+    <div class="card cb">
+      <div class="card-tag">Goals</div>
+      <h2>3 Things</h2>
       <div class="goal-list">
         <div class="goal-item">
-          <span class="goal-num">→ 01</span>
-          <span class="goal-text">Grow a powerful AI ecosystem rooted in Bihar — proof that ambition has no geography.</span>
+          <span class="goal-num gn-p">01</span>
+          <span class="goal-text">Help Garda AI Academy grow into something real — a place where Bihar's students don't feel left behind by AI.</span>
         </div>
         <div class="goal-item">
-          <span class="goal-num">→ 02</span>
-          <span class="goal-text">Build deep authority in the AI and tech content space through YouTube and long-form strategy.</span>
+          <span class="goal-num gn-b">02</span>
+          <span class="goal-text">Build my own creative brand that speaks for itself — through work, not words.</span>
         </div>
         <div class="goal-item">
-          <span class="goal-num">→ 03</span>
-          <span class="goal-text">Achieve financial independence through content monetization, brand, and creative leadership.</span>
+          <span class="goal-num gn-y">03</span>
+          <span class="goal-text">Turn what I'm good at into something financially independent — content, brand, creative direction.</span>
         </div>
       </div>
     </div>
-
-    <div class="card">
-      <div class="card-label">06 — Character Traits</div>
-      <h2>How She Shows Up</h2>
+    <div class="card cp">
+      <div class="card-tag">Who I Am At Work</div>
+      <h2>How I Show Up</h2>
       <div class="trait-grid">
-        <div class="trait"><span class="trait-icon">🔥</span><span class="trait-text">Driven by mastery, not applause</span></div>
-        <div class="trait"><span class="trait-icon">📐</span><span class="trait-text">Structured & system-oriented</span></div>
-        <div class="trait"><span class="trait-icon">🌍</span><span class="trait-text">Proud Bihar identity & mission</span></div>
-        <div class="trait"><span class="trait-icon">🎬</span><span class="trait-text">Visual storyteller at heart</span></div>
-        <div class="trait"><span class="trait-icon">💡</span><span class="trait-text">Strategic creative thinker</span></div>
-        <div class="trait"><span class="trait-icon">🚀</span><span class="trait-text">Ecosystem builder, not solo flyer</span></div>
+        <div class="trait"><span class="trait-icon">🔥</span><span class="trait-text">I execute, I don't just plan</span></div>
+        <div class="trait"><span class="trait-icon">🎬</span><span class="trait-text">Storyteller first, everything else second</span></div>
+        <div class="trait"><span class="trait-icon">🌍</span><span class="trait-text">Bihar-proud, no apologies</span></div>
+        <div class="trait"><span class="trait-icon">💡</span><span class="trait-text">I see AI as a creative tool, not a shortcut</span></div>
+        <div class="trait"><span class="trait-icon">📐</span><span class="trait-text">I build systems, not just content</span></div>
+        <div class="trait"><span class="trait-icon">🤝</span><span class="trait-text">I work best in a small, serious team</span></div>
       </div>
     </div>
+  </div>
 
+  <!-- 04 MY WORK -->
+  <div class="section-float">
+    <span class="float-num fn-pu">04</span>
+    <h3>My Work</h3>
+    <div class="float-line fl-pu"></div>
+  </div>
+
+  <div class="grid">
+    <div class="card cy">
+      <div class="card-tag">What I've Done</div>
+      <h2>Projects</h2>
+      <div class="work-list" style="margin-top:10px;">
+        <div class="work-item">
+          <div class="work-icon">✈</div>
+          <div>
+            <div class="work-tag wt-p">RadheWorks · YouTube</div>
+            <div class="work-title">AI Short Film on Ahmedabad Plane Crash — 39K+ Views</div>
+            <div class="work-desc">Made a short AI-generated film on a real news event. Hit 39K+ organic views. First time I saw what's possible when you mix AI tools with an actual story worth telling.</div>
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-icon">🎨</div>
+          <div>
+            <div class="work-tag wt-b">Garda AI Academy · Startup</div>
+            <div class="work-title">Building the Brand from Scratch</div>
+            <div class="work-desc">Handling the full creative side of our startup — visual identity, content strategy, flyer design, social presence. It's early days, but we're building something solid.</div>
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-icon">📱</div>
+          <div>
+            <div class="work-tag wt-y">Punit Gupta · Instagram</div>
+            <div class="work-title">AI Content for Garda AI's Founder</div>
+            <div class="work-desc">Creating Instagram content for Punit Gupta — founder of Garda AI Academy — covering AI tools, trends, and making new tech accessible: ChatGPT, Gemini, image generation and more. <a href="https://www.instagram.com/punit.gupta_ai" target="_blank" rel="noopener" style="color:#9a7000;font-weight:700;text-decoration:none;">@punit.gupta_ai ↗</a></div>
+          </div>
+        </div>
+        <div class="work-item">
+          <div class="work-icon">🏫</div>
+          <div>
+            <div class="work-tag wt-pu">Garda AI Academy · Bihar</div>
+            <div class="work-title">Free AI Sessions for School Students</div>
+            <div class="work-desc">Part of the team running free AI education sessions for school students across Bihar. I handle the creative side — making it look good and feel approachable.</div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <!-- MANTRA -->
   <div class="mantra-card">
-    <div class="card-label">Core Mantra</div>
-    <p class="mantra-quote">"Fear doesn't disappear when you feel ready — it disappears when your <span>skills become louder</span> than your doubts."</p>
+    <div class="mantra-tag">✈ &nbsp; What I believe · Khushi Gupta</div>
+    <p class="mantra-quote">
+      "Fear doesn't disappear when you feel <span class="mq-b">ready</span> —<br>
+      it disappears when your <span class="mq-p">skills become louder</span><br>
+      than your <span class="mq-y">doubts.</span>"
+    </p>
   </div>
 
-  <div class="footer">GARDA AI ACADEMY · KHUSHI GUPTA · CREATIVE HEAD · BIHAR, INDIA</div>
-
-</div>
-</body>
-</html>
+  <div class="footer">
+    ✈ &nbsp; GARDA AI ACADEMY · KHUSHI GUPTA · CREATIVE HEAD · PATNA, BIHAR
+    &nbsp;·&nbsp;
+    <a class="fp" href="https://www.linkedin.com/in/khushi-gupta-a767933a3" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a class="fb" href="https://gardaai.in" target="_blank">gardaai.in</a>
+    &nbsp;·&nbsp;
+    <a class="fy" href="/cdn-cgi/l/email-protection#d1bab9a4a2b9b8b8b6a4a1
